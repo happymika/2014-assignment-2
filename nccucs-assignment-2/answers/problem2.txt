@@ -1,0 +1,69 @@
+/**
+ * This class represents a directed, node-weighted graph.
+ *
+ * Specification fields:
+ *  @specfield name : string // Name of the graph.
+ *  @specfield nodeQuantity : integer  // Number of nodes in this graph.
+ *
+ */
+public class Graph {
+	
+  ... // Fields not shown.
+	
+	//Methods
+	/**
+	*Constructs an empty graph with the specified name.
+	*@requires the name of the graph can't be same as the existing ones.
+	*@effects constructs a new graph with the name
+	*/
+	public Graph(String name){}
+	
+	/**
+	*Add a node(street) to this graph. 
+	*@modifies this
+	*@requires Node n must already exist.
+	*@effects add node n to the graph.
+	*@throws java.lang.NullPointerException if node dosen't exist.
+	*/
+	public void addNode(WeightedNode n){}
+
+	/**
+	*Add a edge between two nodes.
+	*The edge is directional.
+	*@requires Node n1 and n2 must already exist.
+	*@throws java.lang.NullPointerException if node dosen't exist.
+	*/
+	public void addEdge(WeightedNode n1, WeightedNode n2){}
+	
+	/**
+	*List whole nodes(streets) in this graph.
+	*@return a string which is a space-separated list of the 
+	*		 names of all nodes in the graph.
+	*/
+	public String listNodes(){}
+	
+	/**
+	*List whole children of node n.
+	*@requires Node n must already exist.
+	*@exception java.lang.NullPointerException if node dosen't exist.
+	*@return a string which is a space-separated list of the name of nodes to 
+	*		 which there is an edge from parentNode.
+	*/
+	public String listChildren(WeightedNode n){}
+	
+	/**
+	*List whole children of node n.
+	*@requires Node start and end must already exist.
+	*@exception java.lang.NullPointerException if node dosen't exist.
+	*@return a string which will show the shortest path amongst all of the possible 
+	*		 paths from any of the "start" nodes to any of the "end" nodes.
+	*/
+	public String findPath(WeightedNode start, WeightedNode end){}
+	
+	/**
+	*Check this graph is empty or not.
+	*@return if the graph is empty, then return true.
+	*/
+	public boolean isEmpty(){} 
+	
+}
