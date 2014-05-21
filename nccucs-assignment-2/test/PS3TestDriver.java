@@ -55,7 +55,7 @@ public class PS3TestDriver {
 
     /** String -> Graph: maps the names of graphs to the actual graph **/
     //TODO for the student: Parameterize the next line correctly.
-    //private final Map<String, _______> graphs = new HashMap<String, ________>();
+    private final Map<String, Graph> graphs = new HashMap<String, Graph>();
     /** String -> WeightedNode: maps the names of nodes to the actual node **/
     private final Map<String, WeightedNode> nodes = new HashMap<String, WeightedNode>();
     private final PrintWriter output;
@@ -139,10 +139,9 @@ public class PS3TestDriver {
     }
 
     private void createGraph(String graphName) {
-        // Insert your code here.
-
-        // graphs.put(graphName, ___);
-        // output.println(...);
+    	Graph tempGraph = new Graph(graphName);
+        graphs.put(graphName, tempGraph);
+        output.println("created graph " + graphName);
     }
 
     private void createNode(List<String> arguments) {
@@ -157,10 +156,9 @@ public class PS3TestDriver {
     }
 
     private void createNode(String nodeName, String cost) {
-        // Insert your code here.
-
-        // nodes.put(nodeName, ___);
-        // output.println(...);
+    	WeightedNode tempNode = new WeightedNode(nodeName, Integer.parseInt(cost));
+    	nodes.put(nodeName, tempNode);
+        output.println("created node " + nodeName + " with cost " + cost);
     }
 
     private void addNode(List<String> arguments) {
@@ -175,11 +173,12 @@ public class PS3TestDriver {
     }
 
     private void addNode(String graphName, String nodeName) {
-        // Insert your code here.
-
-        // ___ = graphs.get(graphName);
-        // ___ = nodes.get(nodeName);
-        // output.println(...);
+    	Graph tempGraph = graphs.get(graphName);
+    	WeightedNode tempNode = nodes.get(nodeName);
+    	if(!tempGraph.doesNodeExist(tempNode)){
+        	tempGraph.addNode(tempNode);
+            output.println("added node " + nodeName + " to " + graphName);
+    	}
     }
 
     private void addEdge(List<String> arguments) {
@@ -197,7 +196,7 @@ public class PS3TestDriver {
     private void addEdge(String graphName, String parentName, String childName) {
         // Insert your code here.
 
-        // ___ = graphs.get(graphName);
+    	Graph tempGraph = graphs.get(graphName);
         // ___ = nodes.get(parentName);
         // ___ = nodes.get(childName);
         // output.println(...);

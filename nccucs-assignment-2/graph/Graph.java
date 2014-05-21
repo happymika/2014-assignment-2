@@ -1,5 +1,7 @@
 package ps3.graph;
 
+import java.util.*;
+
 /**
 *@author YuhRu Lin, NCCUCS, Taiwan.
 */
@@ -11,6 +13,10 @@ public class Graph {
 	private String name;
 	/** Number of nodes in this graph. */
 	private int nodeQuantity;
+    /** String -> WeightedNode: maps the names of nodes to the actual node **/
+    private final Map<String, WeightedNode> nodes = new HashMap<String, WeightedNode>();
+	/** String -> ArrayList<WeightedNode>: maps the names of nodes to the children list. */
+	private final Map<String, ArrayList<WeightedNode>> Parents = new HashMap<String, ArrayList<WeightedNode>>();
 
 	//Methods
 	/**
@@ -29,7 +35,7 @@ public class Graph {
 	*@throws java.lang.NullPointerException if node dosen't exist.
 	*/
 	public void addNode(WeightedNode n){
-		
+		nodes.put(n.name(), n);
 	}
 
 	/**
@@ -44,17 +50,26 @@ public class Graph {
 	/**
 	*List whole nodes(streets) in this graph.
 	*/
-	public void listNodes(){}
+	public String listNodes(){
+		
+		return "";
+	}
 	
 	/**
 	*List whole children of node n.
 	*@param n The node n's children will be listed.
 	*@exception java.lang.NullPointerException if node dosen't exist.
 	*/
-	public void listChildren(WeightedNode n){}
+	public String listChildren(WeightedNode n){
+		//WeightedNode a = new WeightedNode("abc", 10);
+		return " ";
+	}
 	
 	
-	public void findPath(WeightedNode start, WeightedNode end){}
+	public String findPath(WeightedNode start, WeightedNode end){
+		//WeightedNodePath temp = new WeightedNodePath();
+		return "";
+	}
 	
 	/**
 	*Check this graph is empty or not.
@@ -71,5 +86,12 @@ public class Graph {
 	public String getName(){
 		return this.name;
 	} 
+	
+	public boolean doesNodeExist(WeightedNode n){
+		if(nodes.get(n.name()) != null)
+			return true;
+		else
+			return false;
+	}
 	
 }
