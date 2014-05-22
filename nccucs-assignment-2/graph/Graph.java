@@ -50,7 +50,7 @@ public class Graph {
 	*@exception java.lang.NullPointerException if node dosen't exist.
 	*/
 	public void addEdge(WeightedNode n1, WeightedNode n2){
-		Parents.get(n1).add(n2);
+		Parents.get(n1.name()).add(n2);
 	}
 	
 	/**
@@ -74,7 +74,15 @@ public class Graph {
 	*/
 	public String listChildren(WeightedNode n){
 		//WeightedNode a = new WeightedNode("abc", 10);
-		return " ";
+		ArrayList<WeightedNode> tempChildrenList = Parents.get(n.name());
+		Collections.sort(tempChildrenList);
+		String childrenListStr = "";
+		for(int i = 0 ; i < tempChildrenList.size() ; i++){ 
+			if(i != 0)
+				childrenListStr += " ";
+			childrenListStr += tempChildrenList.get(i).name();
+		}
+		return childrenListStr;
 	}
 	
 	

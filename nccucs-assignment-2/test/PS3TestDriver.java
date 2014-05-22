@@ -229,11 +229,9 @@ public class PS3TestDriver {
     }
 
     private void listChildren(String graphName, String parentName) {
-        // Insert your code here.
-
-        // ___ = graphs.get(graphName);
-        // ___ = nodes.get(parentName);
-        // output.println(...);
+    	Graph tempGraph = graphs.get(graphName);
+    	WeightedNode tempNode = nodes.get(parentName);    	
+        output.println("the children of " + parentName + " in " + graphName + " are: " + tempGraph.listChildren(tempNode));
     }
 
     private void findPath(List<String> arguments) {
