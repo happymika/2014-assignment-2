@@ -197,9 +197,10 @@ public class PS3TestDriver {
         // Insert your code here.
 
     	Graph tempGraph = graphs.get(graphName);
-        // ___ = nodes.get(parentName);
-        // ___ = nodes.get(childName);
-        // output.println(...);
+    	WeightedNode parentNode = nodes.get(parentName);
+    	WeightedNode childNode = nodes.get(childName);
+    	tempGraph.addEdge(parentNode, childNode);
+        output.println("added edge from " + parentNode + " to " + childNode + " in " + graphName);
     }
 
 
@@ -213,10 +214,8 @@ public class PS3TestDriver {
     }
 
     private void listNodes(String graphName) {
-        // Insert your code here.
-
-        // ___ = graphs.get(graphName);
-        // output.println(...);
+    	Graph tempGraph = graphs.get(graphName);
+        output.println(tempGraph.getName() + " contains: "+ tempGraph.listNodes());
     }
 
     private void listChildren(List<String> arguments) {
