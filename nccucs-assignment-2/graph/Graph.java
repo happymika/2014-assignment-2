@@ -2,6 +2,8 @@ package ps3.graph;
 
 import java.util.*;
 
+import junit.framework.Test;
+
 /**
 *@author YuhRu Lin, NCCUCS, Taiwan.
 */
@@ -23,10 +25,16 @@ public class Graph {
 	/**
 	*Constructs a new empty graph with the specified name.
 	*@effects constructs a new graph with the name
+	*@throws IllegalArgumentException if the name is empty
 	*/
 	public Graph(String name){
-		this.name = name;
-		this.nodeQuantity = 0;
+		if(name == ""){
+			throw new IllegalArgumentException("The name is empty.");
+		}
+		else{
+			this.name = name;
+			this.nodeQuantity = 0;
+		}
 	}
 	
 	/**
@@ -40,6 +48,7 @@ public class Graph {
 		nodes.put(n.name(), n);
 		Parents.put(n.name(), childrenList);
 		nodesList.add(n.name());
+		nodeQuantity++;
 	}
 
 	/**
@@ -49,8 +58,8 @@ public class Graph {
 	*@param n2 Child node.
 	*@exception java.lang.NullPointerException if node dosen't exist.
 	*/
-	public void addEdge(WeightedNode n1, WeightedNode n2){
-		Parents.get(n1.name()).add(n2);
+	public void addEdge(String n1, String n2){
+		Parents.get(n1).add(nodes.get(n2));
 	}
 	
 	/**
@@ -72,9 +81,9 @@ public class Graph {
 	*@param n The node n's children will be listed.
 	*@exception java.lang.NullPointerException if node dosen't exist.
 	*/
-	public String listChildren(WeightedNode n){
+	public String listChildren(String n){
 		//WeightedNode a = new WeightedNode("abc", 10);
-		ArrayList<WeightedNode> tempChildrenList = Parents.get(n.name());
+		ArrayList<WeightedNode> tempChildrenList = Parents.get(n);
 		Collections.sort(tempChildrenList);
 		String childrenListStr = "";
 		for(int i = 0 ; i < tempChildrenList.size() ; i++){ 
@@ -107,11 +116,20 @@ public class Graph {
 		return this.name;
 	} 
 	
-	public boolean doesNodeExist(WeightedNode n){
-		if(nodes.get(n.name()) != null)
+	public boolean doesNodeExist(String name){
+		if(nodes.get(name) != null)
 			return true;
 		else
 			return false;
+	}
+	
+	/**
+	*Get the size information of the graph. 
+	*"Size" means the number of nodes in the graph. 
+	*@return the quantity of nodes in the graph.
+	*/
+	public int size(){
+		return this.nodeQuantity;
 	}
 	
 }

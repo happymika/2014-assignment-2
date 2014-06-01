@@ -1,0 +1,6 @@
+我的JUnit測試程式稱為GraphTest.java。
+
+首先，我宣告三個Graph，其中兩個已先初始化，都維持預設的狀態，一個可讓我隨意增加node與edge，另一個保持沒有node的狀態。在setUp method的地方初始化第三個Graph，好讓測試method直接使用設計好的graph，省下許多佈置新graph的步驟。
+
+測試method主要檢查graph的各個method是否如預期地運作，亦檢查是否有exception回傳。
+

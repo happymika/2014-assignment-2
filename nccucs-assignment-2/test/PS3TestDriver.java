@@ -175,7 +175,7 @@ public class PS3TestDriver {
     private void addNode(String graphName, String nodeName) {
     	Graph tempGraph = graphs.get(graphName);
     	WeightedNode tempNode = nodes.get(nodeName);
-    	if(!tempGraph.doesNodeExist(tempNode)){
+    	if(!tempGraph.doesNodeExist(nodeName)){
         	tempGraph.addNode(tempNode);
             output.println("added node " + nodeName + " to " + graphName);
     	}
@@ -199,7 +199,7 @@ public class PS3TestDriver {
     	Graph tempGraph = graphs.get(graphName);
     	WeightedNode parentNode = nodes.get(parentName);
     	WeightedNode childNode = nodes.get(childName);
-    	tempGraph.addEdge(parentNode, childNode);
+    	tempGraph.addEdge(parentName, childName);
         output.println("added edge from " + parentNode + " to " + childNode + " in " + graphName);
     }
 
@@ -231,7 +231,7 @@ public class PS3TestDriver {
     private void listChildren(String graphName, String parentName) {
     	Graph tempGraph = graphs.get(graphName);
     	WeightedNode tempNode = nodes.get(parentName);    	
-        output.println("the children of " + parentName + " in " + graphName + " are: " + tempGraph.listChildren(tempNode));
+        output.println("the children of " + parentName + " in " + graphName + " are: " + tempGraph.listChildren(parentName));
     }
 
     private void findPath(List<String> arguments) {
