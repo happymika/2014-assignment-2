@@ -1,15 +1,16 @@
 package ps3.test;
 
 import static org.junit.Assert.*;
+import junit.framework.TestCase;
 
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+//import org.junit.rules.IllegalArgumentException;
 
 import ps3.graph.*;
-import static org.junit.Assert.*;
 
-public class GraphTest {
+public class GraphTest extends TestCase{
 	Graph test1 = new Graph("Graph 1"); // a empty graph default. It can be modified.
 	Graph test2 = new Graph("Graph 2"); // a empty graph
 	Graph test3; // complete, correct sample
@@ -25,14 +26,20 @@ public class GraphTest {
 		test3.addNode(node3);
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
-	public void testNoNameGraph() {
-		Graph example = new Graph("");
-	}
-	
 	@Test
 	public void testGraph() {
 		Graph example = new Graph("123");
+	}
+	
+	@Test
+	public void testNoNameGraph() throws IllegalArgumentException{
+		try{
+			Graph example = new Graph("");
+		}
+		catch (Exception e) {
+            assertTrue(e instanceof IllegalArgumentException);
+		}
+		
 	}
 
 	@Test
@@ -71,12 +78,12 @@ public class GraphTest {
 		listStr = test3.listChildren("Taipei to Taichung");
 		assertEquals(listStr, "Taichung to Kaohsiung Taichung to Tainan");
 	}
-
+/*
 	@Ignore
 	@Test
 	public void testFindPath() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	public void testIsEmpty() {

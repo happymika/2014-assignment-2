@@ -1,7 +1,7 @@
 package ps3.graph;
 
 import java.util.*;
-
+import java.security.InvalidParameterException;
 import junit.framework.Test;
 
 /**
@@ -82,7 +82,6 @@ public class Graph {
 	*@exception java.lang.NullPointerException if node dosen't exist.
 	*/
 	public String listChildren(String n){
-		//WeightedNode a = new WeightedNode("abc", 10);
 		ArrayList<WeightedNode> tempChildrenList = Parents.get(n);
 		Collections.sort(tempChildrenList);
 		String childrenListStr = "";

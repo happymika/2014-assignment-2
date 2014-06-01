@@ -1,7 +1,5 @@
 package ps3.test;
 
-import ps3.graph.Graph;
-import ps3.testUnit.MyTest;
 import junit.framework.*;
 
 /**
@@ -19,8 +17,6 @@ public final class ImplementationTests extends TestSuite
     {
         super(s);
 
-        // addTestSuite(MyGreatTests.class);
         addTestSuite(GraphTest.class);
-        
     }
 }

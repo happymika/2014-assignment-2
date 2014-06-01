@@ -1,0 +1,20 @@
+<Graph class implementation>
+
+我設計的Graph在建構的同時必須傳入Graph的名字，每個Graph記錄其name與node總數，而node總數是作為Graph是否為空graph的判斷依據。
+
+除此之外，還宣告3個Java collection framework，分別為：
+1. nodes: HashMap, 用node名字來對應WeightedNode，存著所有nodes的資訊。
+2. Parents: HashMap, 用node名字來對應其children，是以WeightedNode型態的ArrayList實作的。
+3. nodesList: ArrayList, 存著所有node的名字，供用來列出所有node的method使用。
+
+Graph class裡的主要功能有：
+1. 新增node：將新的node資訊存進nodes、Parents、nodesList裡。
+2. 新增edge(有方向性的)：將edge資訊存到Parents裡。
+3. 列出graph裡所有nodes名稱：將nodesList以拼音順序排序後輸出。
+4. 列出某個node的children：以node的名稱作為key，在Parents裡找到對應的children之後以拼音排序後輸出。
+5. 找路徑
+
+與其他想到的實作方式比較：
+1. 或許使用nodesList來存所有node的名字有點多此一舉，但會比把Parents的key拿來排序再輸出來得有效率且容易，因此最後選擇多宣告ArrayList來儲存node。
+2. 在新增edge、列出children的實作上，原本使用WeightedNode作為參數，但參考Test script file format之後發現指令是以node的名字作辨別的，因此參數改為以String型態傳入method。況且，我的實作有將node名稱的不重複性考慮進去，因此同樣名稱的node是無法加入同一個graph的，如此一來以node名稱(String)識別node是不會有風險的。
+
