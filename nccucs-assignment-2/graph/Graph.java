@@ -77,13 +77,22 @@ public class Graph {
 	}
 	
 	/**
+	*Get the sorted children list of node.
+	*/
+	public ArrayList<WeightedNode> children(WeightedNode node){
+		ArrayList<WeightedNode> ChildrenList = Parents.get(node.name());
+		Collections.sort(ChildrenList);
+		return ChildrenList;
+	}
+	
+	/**
 	*List whole children of node n.
 	*@param n The node n's children will be listed.
 	*@exception java.lang.NullPointerException if node dosen't exist.
+	*@return children list (toString)
 	*/
 	public String listChildren(String n){
-		ArrayList<WeightedNode> tempChildrenList = Parents.get(n);
-		Collections.sort(tempChildrenList);
+		ArrayList<WeightedNode> tempChildrenList = this.children(nodes.get(n));
 		String childrenListStr = "";
 		for(int i = 0 ; i < tempChildrenList.size() ; i++){ 
 			if(i != 0)
