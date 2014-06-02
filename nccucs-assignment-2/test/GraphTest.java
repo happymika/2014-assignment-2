@@ -78,12 +78,6 @@ public class GraphTest extends TestCase{
 		listStr = test3.listChildren("Taipei to Taichung");
 		assertEquals(listStr, "Taichung to Kaohsiung Taichung to Tainan");
 	}
-/*
-	@Ignore
-	@Test
-	public void testFindPath() {
-		fail("Not yet implemented");
-	}*/
 
 	@Test
 	public void testIsEmpty() {

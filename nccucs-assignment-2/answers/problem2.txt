@@ -52,15 +52,6 @@ public class Graph {
 	public String listChildren(WeightedNode n){}
 	
 	/**
-	*List whole children of node n.
-	*@requires Node start and end must already exist.
-	*@exception java.lang.NullPointerException if node dosen't exist.
-	*@return a string which will show the shortest path amongst all of the possible 
-	*		 paths from any of the "start" nodes to any of the "end" nodes.
-	*/
-	public String findPath(WeightedNode start, WeightedNode end){}
-	
-	/**
 	*Check this graph is empty or not.
 	*@return if the graph is empty, then return true.
 	*/

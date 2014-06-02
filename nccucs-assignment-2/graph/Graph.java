@@ -93,12 +93,6 @@ public class Graph {
 		return childrenListStr;
 	}
 	
-	
-	public String findPath(WeightedNode start, WeightedNode end){
-		//WeightedNodePath temp = new WeightedNodePath();
-		return "";
-	}
-	
 	/**
 	*Check this graph is empty or not.
 	*@return if the graph is empty, then return true.

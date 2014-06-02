@@ -12,7 +12,6 @@ Graph class裡的主要功能有：
 2. 新增edge(有方向性的)：將edge資訊存到Parents裡。
 3. 列出graph裡所有nodes名稱：將nodesList以拼音順序排序後輸出。
 4. 列出某個node的children：以node的名稱作為key，在Parents裡找到對應的children之後以拼音排序後輸出。
-5. 找路徑
 
 與其他想到的實作方式比較：
 1. 或許使用nodesList來存所有node的名字有點多此一舉，但會比把Parents的key拿來排序再輸出來得有效率且容易，因此最後選擇多宣告ArrayList來儲存node。
