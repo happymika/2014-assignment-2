@@ -1,4 +1,4 @@
-#p3 -- Simple test 1.
+#p7 -- Simple test 1.
 
 # Create a graph
 created graph Graph_test
@@ -8,18 +8,23 @@ created node n1 with cost 10
 created node n2 with cost 15
 created node n3 with cost 20
 created node n4 with cost 3
+created node n5 with cost 15
 added node n1 to Graph_test
 added node n2 to Graph_test
 added node n3 to Graph_test
 added node n4 to Graph_test
+added node n5 to Graph_test
 
 # Add edges
 added edge from n1 to n2 in Graph_test
 added edge from n2 to n3 in Graph_test
 added edge from n2 to n4 in Graph_test
+added edge from n3 to n5 in Graph_test
+added edge from n4 to n5 in Graph_test
 
 # Print some stuff
-Graph_test contains: n1 n2 n3 n4
+Graph_test contains: n1 n2 n3 n4 n5
 the children of n1 in Graph_test are: n2
 the children of n2 in Graph_test are: n3 n4
 the children of n4 in Graph_test are:
+shortest path in Graph_test: n1 n2 n4 n5
