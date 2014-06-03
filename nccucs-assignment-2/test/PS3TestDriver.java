@@ -229,8 +229,7 @@ public class PS3TestDriver {
     }
 
     private void listChildren(String graphName, String parentName) {
-    	Graph tempGraph = graphs.get(graphName);
-    	WeightedNode tempNode = nodes.get(parentName);    	
+    	Graph tempGraph = graphs.get(graphName); 	
         output.println("the children of " + parentName + " in " + graphName + " are: " + tempGraph.listChildren(parentName));
     }
 
@@ -269,16 +268,31 @@ public class PS3TestDriver {
     }
 
     private void findPath(String graphName, List<String> sourceArgs, List<String> destArgs) {
-        // Insert your code here.
-
     	Graph tempGraph = graphs.get(graphName);
-        // ___ = nodes.get(sourceArgs.get(i));
-        // ___ = nodes.get(destArgs.get(i));
-        // ...
-        // DijkstraSpecializer specializer = new DijkstraSpecializer(...);
-        // Path p = PathFinder.findPath(specializer, ..., ...);
-        // output.println(...);
+    	ArrayList<Path<WeightedNode>> srcPaths = new ArrayList<Path<WeightedNode>>();
+    	ArrayList<WeightedNode> destNodes = new ArrayList<>();
+    	Iterator<String> srcIterator = sourceArgs.iterator();
+    	Iterator<String> destIterator = destArgs.iterator();
+    	
+    	while(srcIterator.hasNext()){
+    		srcPaths.add(new WeightedNodePath(nodes.get(srcIterator.next())));
+    	}
+    	while (destIterator.hasNext()){
+    		destNodes.add(nodes.get(destIterator.next()));
+    	}
 
+        DijkstraSpecializer specializer = new DijkstraSpecializer(tempGraph);
+        Path<WeightedNode> p = PathFinder.findPath(specializer, srcPaths, destNodes);
+        if(p == null)
+        	output.println("no path found in "+ graphName);
+        else{
+        	Iterator<WeightedNode> shortestIterator = p.iterator();
+        	output.println("shortest in " + graphName + ":");
+        	while(shortestIterator.hasNext()){
+        		output.print(" " + shortestIterator.next().name());
+        	}
+        	output.println();
+        }
     }
 
     /**
