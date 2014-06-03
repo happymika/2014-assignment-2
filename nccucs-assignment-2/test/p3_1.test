@@ -1,0 +1,25 @@
+# p3 -- Simple test 1.
+
+# Create a graph
+CreateGraph Taiwan
+
+# Add nodes
+CreateNode TaipeiToTaichung 10
+CreateNode TaichungToKaohsiung 15
+CreateNode KaohsiungToTaipei 20
+CreateNode KaohsiungToPingtung 3
+AddNode Taiwan TaipeiToTaichung
+AddNode Taiwan TaichungToKaohsiung
+AddNode Taiwan KaohsiungToTaipei
+AddNode Taiwan KaohsiungToPingtung
+
+# Add edges
+AddEdge Taiwan TaipeiToTaichung TaichungToKaohsiung
+AddEdge Taiwan TaichungToKaohsiung KaohsiungToTaipei
+AddEdge Taiwan TaichungToKaohsiung KaohsiungToPingtung
+
+# Print some stuff
+ListNodes Taiwan
+ListChildren Taiwan TaipeiToTaichung
+ListChildren Taiwan TaichungToKaohsiung
+ListChildren Taiwan KaohsiungToPingtung

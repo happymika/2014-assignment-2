@@ -1,0 +1,25 @@
+#p3 -- Simple test 1.
+
+# Create a graph
+created graph Taiwan
+
+# Add nodes
+created node TaipeiToTaichung with cost 10
+created node TaichungToKaohsiung with cost 15
+created node KaohsiungToTaipei with cost 20
+created node KaohsiungToPingtung with cost 3
+added node TaipeiToTaichung to Taiwan
+added node TaichungToKaohsiung to Taiwan
+added node KaohsiungToTaipei to Taiwan
+added node KaohsiungToPingtung to Taiwan
+
+# Add edges
+added edge from TaipeiToTaichung to TaichungToKaohsiung in Taiwan
+added edge from TaichungToKaohsiung to KaohsiungToTaipei in Taiwan
+added edge from TaichungToKaohsiung to KaohsiungToPingtung in Taiwan
+
+# Print some stuff
+Taiwan contains: KaohsiungToPingtung KaohsiungToTaipei TaichungToKaohsiung TaipeiToTaichung
+the children of TaipeiToTaichung in Taiwan are: TaichungToKaohsiung
+the children of TaichungToKaohsiung in Taiwan are: KaohsiungToPingtung KaohsiungToPingtung
+the children of KaohsiungToPingtung in Taiwan are:
