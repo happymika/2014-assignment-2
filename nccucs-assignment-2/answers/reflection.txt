@@ -1,0 +1,10 @@
+Reflection
+
+a. 閱讀時間大約2~3個晚上。
+很多步驟不太熟，查了很多資料，例如specification的寫法、test case與test suite搭配方法等等，花了非常多時間在這些上面，粗略估計專注於這個作業的時間共30小時。
+
+b. 若能更熟悉JAVA就好了。
+
+c. 若能將每個問題需要做的事情事先條列出來會幫助我們快速進入狀況，因為不是每個題目都只需要完成一個項目，有些需要寫很幾份class與文件，全部都一段一段文字，這樣不太好看。
+
+d. 應該要先理解test case與test suite、各種collection、iterator和compare的用法，很多JAVA的概念很不熟悉，導致coding時東漏西漏。此外，若能提前了解specification怎麼寫也能省下很多時間。
